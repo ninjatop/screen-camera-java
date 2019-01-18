@@ -2,8 +2,8 @@
  * Created by zhantong on 2016/12/2.
  */
 public class CustomColor {
-    public static final CustomColor Y0U0V0=new CustomColor(0,0,0);
-    public static final CustomColor Y0U0V1=new CustomColor(0,0,255);
+    public static final CustomColor Y0U0V0=new CustomColor(0,0,0);//纯黑色
+    public static final CustomColor Y0U0V1=new CustomColor(0,0,255);//纯白色
     public static final CustomColor Y0U1V0=new CustomColor(0,255,0);
     public static final CustomColor Y0U1V1=new CustomColor(0,255,255);
     public static final CustomColor Y1U0V0=new CustomColor(150,0,0);

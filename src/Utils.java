@@ -26,14 +26,17 @@ public class Utils {
             System.out.println(i+" "+gray+" "+integer);
         }
     }
-    public static int bitsToInt(BitSet bitSet,int length,int offset){
+    public static int bitsToInt(BitSet bitSet,int length,int offset){//低位在前面
         int value=0;
         for(int i=0;i<length;i++){
-            value+=bitSet.get(offset+i)?(1<<i):0;
+            value+=bitSet.get(offset+i)?(1 << i):0;
+            //value = value << 1;
+            //value+=bitSet.get(offset+i)?1:0;
+            //value |= bitSet.get(offset+i) ? (length - 1 - i) : 0;
         }
         return value;
     }
-    public static BitSet intArrayToBitSet(int[] data,int bitsPerInt){
+    public static BitSet intArrayToBitSet(int[] data,int bitsPerInt){//这里是低位在前面
         int index=0;
         BitSet bitSet=new BitSet();
         for(int current:data){
@@ -49,16 +52,17 @@ public class Utils {
     public static BitSet intToBitSet(int data){
         return intToBitSet(data,32);
     }
-    public static BitSet intToBitSet(int data,int bitsInInt){
+    public static BitSet intToBitSet(int data,int bitsInInt){//低位在前面
         BitSet bitSet=new BitSet();
         for(int i=0;i<bitsInInt;i++){
             if((data&(1<<i))>0){
+                //bitSet.set(bitsInInt - 1 - i);
                 bitSet.set(i);
             }
         }
         return bitSet;
     }
-    public static int[] bitSetToIntArray(BitSet bitSet,int length,int bitsPerInt){
+    public static int[] bitSetToIntArray(BitSet bitSet,int length,int bitsPerInt){//这里是低位在前面
         int[] array=new int[(int)Math.ceil((float) length/bitsPerInt)];
         for(int i=0;i<length;i++){
             if(bitSet.get(i)){

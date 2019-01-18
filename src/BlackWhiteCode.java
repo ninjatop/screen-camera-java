@@ -31,7 +31,6 @@ public class BlackWhiteCode {
             rightBarBitSet.set(i);
         }
         BitContent rightBarContent=new BitContent(rightBarBitSet);
-
         config.borderContent.set(District.RIGHT,rightBarContent);
     }
     protected void toImages(String inputFilePath,String outputDirectoryPath){
@@ -78,6 +77,7 @@ public class BlackWhiteCode {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            break;
         }
     }
     protected List<BitSet> intArrayListToBitSetList(List<int[]> dataList,int bitsPerInt){
