@@ -77,7 +77,6 @@ public class BlackWhiteCode {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            break;
         }
     }
     protected List<BitSet> intArrayListToBitSetList(List<int[]> dataList,int bitsPerInt){

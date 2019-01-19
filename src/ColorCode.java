@@ -7,7 +7,7 @@ import java.util.BitSet;
 public class ColorCode extends BlackWhiteCode{
     public static void main(String[] args){
         ColorCode colorCode=new ColorCode(new ColorCodeConfig());
-        colorCode.toImages("./books/1.txt","./picture");
+        colorCode.toImages("./books/test.txt","./picture");
     }
     public ColorCode(BarcodeConfig config) {
         super(config);

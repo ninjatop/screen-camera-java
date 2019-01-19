@@ -11,16 +11,16 @@ public class ImagesToVideo {
         ImagesToVideo imagesToVideo;
         if (true) {
             imagesToVideo = new ImagesToVideo.YUVImageBuilder()
-                    .setWorkdingDirectory("/Users/zhantong/Desktop/ShiftCodeColorML6")
-                    .setInputResolution("2000x1880")
-                    .setInputFrameRate("22")
+                    .setWorkdingDirectory("/Users/CHEN/IdeaProjects/screen-camera-java/picture/")
+                    .setInputResolution("1162x1022")
+                    .setInputFrameRate("10")
                     .setInputFilePath("all.yuv")
-                    .setOutputFilePath("40_0.1_22.mp4")
+                    .setOutputFilePath("result.mp4")
                     .build();
         }
         if (false) {
             imagesToVideo = new ImagesToVideo.CompressedImageBuilder()
-                    .setWorkdingDirectory("/Users/zhantong/Desktop/ShiftCodeColorML6")
+                    .setWorkdingDirectory("./picture/")
                     .setInputFileNameRegex("%06d.png")
                     .setInputFrameRate("22")
                     .setOutputFilePath("40_0.1_22.mp4")

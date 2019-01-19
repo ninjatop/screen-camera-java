@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * @Author: CHEN
  * @Date: 2019/1/18 15:54
@@ -39,10 +41,10 @@ public class ColorCodeConfig extends BarcodeConfig {
         paddingContent = new DistrictConfig<>(new BitContent(BitContent.ALL_ZEROS));
         metaContent = new DistrictConfig<>(new BitContent(BitContent.ALL_ZEROS));
 
-        hints.put(ShiftCodeColor.KEY_SIZE_RS_ERROR_CORRECTION,12);
-        hints.put(ShiftCodeColor.KEY_LEVEL_RS_ERROR_CORRECTION,0.1);
-        hints.put(ShiftCodeColor.KEY_NUMBER_RAPTORQ_SOURCE_BLOCKS,1);
-        hints.put(ShiftCodeColor.KEY_PERCENT_RAPTORQ_REDUNDANT,0.5);
-        hints.put(ShiftCodeColor.KEY_IS_REPLACE_LAST_RAPTORQ_SOURCE_PACKET_AS_REPAIR,true);
+        hints.put(ColorCode.KEY_SIZE_RS_ERROR_CORRECTION,12);
+        hints.put(ColorCode.KEY_LEVEL_RS_ERROR_CORRECTION,0.1);
+        hints.put(ColorCode.KEY_NUMBER_RAPTORQ_SOURCE_BLOCKS,1);
+        hints.put(ColorCode.KEY_PERCENT_RAPTORQ_REDUNDANT,0.5);
+        hints.put(ColorCode.KEY_IS_REPLACE_LAST_RAPTORQ_SOURCE_PACKET_AS_REPAIR,true);
     }
 }
