@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Map;
 
 /**
  * Created by zhantong on 16/3/17.
@@ -11,7 +12,7 @@ public class ImagesToVideo {
         ImagesToVideo imagesToVideo;
         if (true) {
             imagesToVideo = new ImagesToVideo.YUVImageBuilder()
-                    .setWorkdingDirectory("/Users/CHEN/IdeaProjects/screen-camera-java/picture/")
+                    .setWorkdingDirectory("./picture")
                     .setInputResolution("1162x1022")
                     .setInputFrameRate("10")
                     .setInputFilePath("all.yuv")
@@ -20,7 +21,7 @@ public class ImagesToVideo {
         }
         if (false) {
             imagesToVideo = new ImagesToVideo.CompressedImageBuilder()
-                    .setWorkdingDirectory("./picture/")
+                    .setWorkdingDirectory("./picture")
                     .setInputFileNameRegex("%06d.png")
                     .setInputFrameRate("22")
                     .setOutputFilePath("40_0.1_22.mp4")
@@ -28,7 +29,10 @@ public class ImagesToVideo {
         }
         if (imagesToVideo != null) {
             try {
+                imagesToVideo.compositFile();
                 imagesToVideo.run();
+               /* String filepath = "C:\\Users\\CHEN\\IdeaProjects\\screen-camera-java\\picture";
+                imagesToVideo.runFFMpeg(filepath, 1162,1062,10);*/
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -39,7 +43,17 @@ public class ImagesToVideo {
         this.workingDirectory = workingDirectory;
         this.builder = builder;
     }
-
+    public boolean compositFile()throws IOException, InterruptedException{//把所有文件合成为all.yuv
+        System.out.println("start comsosite file");
+        ProcessBuilder pb = new ProcessBuilder("cmd", "/c","type *.yuv >> all.yuv");
+        pb.directory(new File(workingDirectory));
+        Process p = pb.start();
+        String output = Utils.inputStreamToString(p.getInputStream());
+        int returnValue = p.waitFor();
+        System.out.println("compositFile return value " + returnValue + " output:");
+        System.out.println(output);
+        return returnValue == 0;
+    }
     public boolean run() throws IOException, InterruptedException {
         builder.directory(new File(workingDirectory));
         builder.redirectErrorStream(true);
