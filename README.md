@@ -10,9 +10,11 @@ JAVA版本采用JDK1.7作为开发环境，需要用到外部依赖包OpenRQ。
 由于JAVA版本采用IntelliJ IDEA作为集成开发环境，若使用eclipse进行编辑则可能需要重新设置依赖包等参数。
 
 可以在IntelliJ中使用GitHub插件直接clone本项目，也可以在本项目页面下载zip包，解压后用IntelliJ打开。
+
 ## Reference
 - ReedSolomon编解码部分用到了[zxing]项目的代码
 - RaptorQ的实现用到了[OpenRQ]项目
-[Android版本]:https://github.com/zhantong1994/screen-camera-android
+- 该项目需用用到FFMPEG
+
 [zxing]:https://github.com/zxing/zxing
 [OpenRQ]:https://github.com/openrq-team/OpenRQ
